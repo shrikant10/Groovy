@@ -8,6 +8,7 @@ class Det{
     String email
     int age
 };
+
 Map m1 = [firstname: "Shrikant",lastname: "Gupta",email: "gupta.shri16@gmail.com",age:80]
 Map m2 = [firstname: "Sidhart",lastname: "Tiu",email: "abc@gmail.com",age:20]
 Map m3 = [firstname: "Naman",lastname: "Jain",email: "xyz@gmail.com",age:30]
@@ -29,21 +30,11 @@ List l1=[u1,u2,u3,u4,u5,u6,u7];
     println "${it.firstname} ${it.lastname} ${it.age} ${it.email}"
 }*/
 
-List a1=[]
-List a2=[]
+List a1=l1.findAll { it.age>50 }
+List a2=l1.findAll { it.age<=50 }
 
-a1=l1.findAll {
-    it.age>50
-}
+println "\n User with age greater than 50 :"
+a1.each { println "${it.firstname} ${it.lastname} (${it.age}) " }
 
-a2=l1.findAll {
-    it.age<=50
-}
-
-a1.each {
-    println "${it.firstname} ${it.lastname} ${it.age} ${it.email}"
-}
-
-a2.each {
-    println "${it.firstname} ${it.lastname} ${it.age} ${it.email}"
-}
+println "\n User with age less than or equal to 50 :"
+a2.each { println "${it.firstname} ${it.lastname} (${it.age})" }
